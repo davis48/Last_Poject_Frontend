@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { getState } from './redux/slices/authSlice';
 import LandingPage from './pages/LandingPage';
 import Home from './pages/home';
-import Layout from './pages/layout';
 import Login from './pages/login';
 import Register from './pages/register';
 import Activation from './pages/activation';
@@ -15,11 +14,12 @@ function App() {
   const { isAuthenticated } = useSelector(getState);
   const location = useLocation();
   const isLandingPage = location.pathname === '/';
+  const isHomePage = location.pathname === '/home';
 
   return (
     <div className="min-h-screen w-screen bg-background-color text-text-color">
       {!isLandingPage && <Navbar />}
-      <main className="container mx-auto px-4 py-8">
+      <main className={`w-full ${!isHomePage ? 'container mx-auto px-4' : ''} py-8`}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           
@@ -36,16 +36,14 @@ function App() {
           <Route path="/activation/:token" element={<Activation />} />
           
           {/* Routes protégées */}
-          <Route element={<Layout />}>
-            <Route 
-              path="/home" 
-              element={
-                <PrivateRoute>
-                  <Home />
-                </PrivateRoute>
-              } 
-            />
-          </Route>
+          <Route 
+            path="/home" 
+            element={
+              <PrivateRoute>
+                <Home />
+              </PrivateRoute>
+            } 
+          />
 
           {/* Redirection par défaut */}
           <Route path="*" element={<Navigate to="/" replace />} />
