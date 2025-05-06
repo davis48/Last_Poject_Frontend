@@ -123,27 +123,27 @@ function LoginForm() {
 
 
        
-        <div className="form-control pt-5 flex flex-row justify-between">
+        <div className="form-control pt-5 flex flex-row justify-between items-center gap-4">
             <button 
                 type="submit"  
                 id='loginSubmit'
-                className="bg-gray-800, mb-3 border border-green-700
-                inline-block w-100 rounded px-6 pb-2 pt-2.5 
-                text-xs font-medium  leading-normal 
-                shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] 
-                transition duration-150 ease-in-out 
-                hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] 
-                focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] 
-                focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]"
+                className="inline-flex items-center px-6 py-2.5 border border-transparent text-xs font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                 data-te-ripple-init data-te-ripple-color="light"
             >
-            Connection
-          </button>
-          <Link to="/security/register" className="font-semibold mt-3 text-indigo-600 hover:text-indigo-500">{"je crée mon compte"}</Link>
-          {/* <a href="#!" onClick={handleClick} className="font-semibold mt-3 text-indigo-600 hover:text-indigo-500">
-              je crée mon compte
-          </a> */}
-         
+              <span className="flex items-center">
+                <i className="fas fa-sign-in-alt mr-2"></i>
+                Connexion
+              </span>
+            </button>
+            <Link 
+              to="/security/register" 
+              className="inline-flex items-center px-6 py-2.5 border-2 border-indigo-600 text-xs font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 hover:text-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            >
+              <span className="flex items-center">
+                <i className="fas fa-user-plus mr-2"></i>
+                Je crée mon compte
+              </span>
+            </Link>
         </div>
       </form>
     </div>
